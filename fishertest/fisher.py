@@ -109,28 +109,33 @@ def inputSignificanceLevel():
         else:
             print('Ошибка: Не удалось преобразовать ввод в число.')
     
+def normalizeFloat(num):
+    return "{:4.3e}".format(num)
+
 def printFisher():
     fileString = inputFile()
     
     arr = list(map(float,fileString.split(' ')))
 
     print(f'Количество элементов выборки: {len(arr)}')
-    print(f'Среднее арифметическое значение: {np.mean(arr)}')
-    print(f'Оценка среднего квадратического отклонения: {stats.tstd(arr)}')
+    print(f'Среднее арифметическое значение: {normalizeFloat(np.mean(arr))}')
+    print(f'Оценка среднего квадратического отклонения: {normalizeFloat(stats.tstd(arr))}')
 
     countSplit = inputCountSplit(len(arr))
     significanceLevel = inputSignificanceLevel()
     
     arr = np.array_split(arr, countSplit)    
 
-    print(f'Межгрупповая дисперсия: {MSA(arr)}')
-    print(f'Внутригрупповая дисперсия: {MSW(arr)}')
+    print(f'Межгрупповая дисперсия: {normalizeFloat(MSA(arr))}')
+    print(f'Внутригрупповая дисперсия: {normalizeFloat(MSW(arr))}')
     
     fCritery = getFishersCritery(arr)    
-    print(f'Критерий Фишера: {fCritery}')
+    print(f'Критерий Фишера: {normalizeFloat(fCritery)}')
     fCriticalCritery = getCriticalFishersCritery(significanceLevel, arr)
-    print(f'Критический критерий Фишера: {fCriticalCritery}')
+    print(f'Критический критерий Фишера: {normalizeFloat(fCriticalCritery)}')
     
-    print(f'{fCritery} {">=" if fCritery >= fCriticalCritery else "<"} {fCriticalCritery}')    
+    print(f'{normalizeFloat(fCritery)} {">=" if fCritery >= fCriticalCritery else "<"} {normalizeFloat(fCriticalCritery)}')    
 
     print(f'{"Систематическая погрешность присутствует." if fCritery >= fCriticalCritery else "Систематическая погрешность отсутствует."}') 
+
+printFisher()
