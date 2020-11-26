@@ -137,5 +137,3 @@ def printFisher():
     print(f'{normalizeFloat(fCritery)} {">=" if fCritery >= fCriticalCritery else "<"} {normalizeFloat(fCriticalCritery)}')    
 
     print(f'{"Систематическая погрешность присутствует." if fCritery >= fCriticalCritery else "Систематическая погрешность отсутствует."}') 
-
-printFisher()
