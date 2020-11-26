@@ -133,8 +133,4 @@ def printFisher():
     
     print(f'{fCritery} {">=" if fCritery >= fCriticalCritery else "<"} {fCriticalCritery}')    
 
-    oneway = stats.f_oneway(*arr)
-    pvalue = oneway[1]
-
-    print(f'pvalue: {pvalue}')
-    print(f'{"Фактор влияет на погрешность." if pvalue <= significanceLevel else "Фактор не влияет на погрешность."}') 
+    print(f'{"\nСистематическая погрешность присутствует." if fCritery >= fCriticalCritery else "Систематическая погрешность отсутствует."}') 
