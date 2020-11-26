@@ -133,4 +133,4 @@ def printFisher():
     
     print(f'{fCritery} {">=" if fCritery >= fCriticalCritery else "<"} {fCriticalCritery}')    
 
-    print(f'{"\nСистематическая погрешность присутствует." if fCritery >= fCriticalCritery else "Систематическая погрешность отсутствует."}') 
+    print(f'{"Систематическая погрешность присутствует." if fCritery >= fCriticalCritery else "Систематическая погрешность отсутствует."}') 

@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="fishertest", # Replace with your own username
-    version="0.0.11",
+    version="0.0.12",
     author="Andrew Piskunov",
     author_email="andrepisk2000@gmail.com",
     description="A small app for calculate Fisher critery",
