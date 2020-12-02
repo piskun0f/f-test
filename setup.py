@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="fishertest", # Replace with your own username
-    version="0.0.14",
+    version="0.0.22",
     author="Andrew Piskunov",
     author_email="andrepisk2000@gmail.com",
     description="A small app for calculate Fisher critery",
@@ -16,7 +16,15 @@ setuptools.setup(
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
-        "Operating System :: OS Independent",        
+        "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
+    install_requires=[
+        "scipy",
+        "numpy"
+    ],
+    setup_requires=[
+        "scipy",
+        "numpy"
+    ]
 )
